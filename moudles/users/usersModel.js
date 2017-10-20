@@ -28,6 +28,10 @@ const loginUser = (user, callback) => {
     });
 };
 
+const submitComment = (cmtList, callback )=>{
+
+}
+
 
 
 module.exports = {

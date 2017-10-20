@@ -1,15 +1,16 @@
 const express = require ('express');
 const Router = express.Router();
 const userModel = require('./usersModel');
-Router.post('/', (req, res)=>{
-    let newUser = {
-        username : req.body.username,
-        password : req.body.password,
-        fullname:req.body.fullname,
-        email: req.body.email,
-        dob : req.body.dob,
-        image : req.body.image
+Router.post('/login/facebook', (req, res)=>{
+    console.log('body',req.body);
+    var newUser = {
+        fullname : req.body.fullname,
+        activeImage : req.body.activeImage,
+        uid : req.body.uid,
+        username : "lamnn",
+        password : "lamnn"
     };
+    console.log("new user",newUser)
     userModel.createUser(newUser, (err, doc)=>{
         if (err){
             console.log(err);
@@ -28,14 +29,14 @@ Router.post('/signIn', (req, res)=>{
             console.log(err);
             res.send(err);
         } else {
-            // if(req.body.remember){
-            //     res.session.cookie.username = doc.username;
-            // }
+
             req.session.username = doc.username;
             res.send(doc);
         }
     })
-})
+});
+
+
 
 
 module.exports = Router;

@@ -1,0 +1,43 @@
+.screen-dim{
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba( 0, 0, 0, 0.5);
+	z-index: 2;
+}
+.opened-picture-wrapper{
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50%);
+}
+.instant-picture-wrapper{
+	width: 400px;
+	height: 500px;
+	padding: 15px;
+	background-color: #ffffff;
+	/*box-shadow: 0px 4px 20px -4px rgba( 255, 255, 255,0.72);*/
+}
+.instant-picture{
+	width: 100%;
+}
+.instant-picture > img{
+	width: inherit;
+}
+.focused-left-content{
+	width: 300px;
+	height: 500px;
+	background-color: blue;
+	margin-left: 20px;
+	padding: 15px;
+}
+.owners-name{
+	font-weight: bold;
+}
+.comment-section{
+
+}

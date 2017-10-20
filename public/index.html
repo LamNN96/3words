@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anonymous view</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="menuStyle.css">
+    <link rel="stylesheet" type="text/css" href="contentStyle.css">
+    <link rel="stylesheet" type="text/css" href="loginStyle.css">
+    <link rel="stylesheet" type="text/css" href="createAccountStyle.css">
+    <link rel="stylesheet" type="text/css" href="openPictureStyle.css">
+</head>
+<body>
+<div class="total-wrapper">
+    <div class="header-wrapper">
+        <div class="menu-wrapper">
+            <ul class="menu-list">
+                <li class="menu-option"><a class="active" href=""><span class="fa fa-home"></span><span
+                        class="menu-option-text">Home</span></a></li>
+                <li class="menu-option"><a href=""><span class="fa fa-bell-o"></span><span class="menu-option-text">Notification</span></a>
+                </li>
+            </ul>
+            <div class="brand-icon">#LoGo</div>
+            <div class="right-dock">
+                <!-- <div class="search-notation" id="search-notation"><span class="fa fa-search"></span></div> -->
+                <form class="search" id="search-bar">
+                    <input id="search-input" type="text" name="" placeholder="Search">
+                    <span id="search-button" class="fa fa-search"></span>
+                </form>
+                <div id="open-sign-in-button"><span class="fa fa-sign-in"></span>Sign In</div>
+                <!-- <span id="post-button">Post</span> -->
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="portfolios-wrapper">
+            <div class="portfolios-grid">
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture1.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture2.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture3.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture4.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture5.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture6.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+                <div class="portfolios-grid-item">
+                    <div class="portfolio-picture-wrapper">
+                        <img src="picture.jpg">
+                    </div>
+                    <div class="portfolio-picture-text">
+                        <p>Some beautiful text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="screen-dim">-->
+    <!--<div class="opened-picture-wrapper">-->
+    <!--<div class="instant-picture-wrapper">-->
+    <!--<div class="instant-picture">-->
+    <!--<img src="picture1.jpg">-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="focused-left-content">-->
+    <!--<div class="owners-name">User Name</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div id="fb-root"></div>
+    <script>
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            if (response.status === 'connected') {
+                testAPI();
+                document.getElementById('atk').innerHTML = response.authResponse.accessToken;
+            } else {
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+            }
+        };
+
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+//                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=709969695863741";
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=148233869245978";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        };
+
+        function testAPI() {
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+//                    document.getElementById('status').innerHTML =
+//                        'Thanks for logging in, ' + response.name + '!';
+//                    document.getElementById('uid').innerHTML = response.id;
+                let urlImage = `https://graph.facebook.com/${response.id}/picture?width=300`;
+                console.log(response);
+//                    document.getElementById('imgtest').src = string;
+//                    document.getElementById('form-type-user').style = "";
+
+                let newUser = {
+                    uid: response.id,
+                    fullname: response.name,
+                    activeImage: urlImage
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify({
+                        uid: response.id,
+                        fullname: response.name,
+                        activeImage: urlImage
+                    }),
+                    dataType: 'json',
+                    //contentType: 'application/json',
+                    url: '/user/login/facebook',
+
+                })
+                    .done(function (data) {
+                        console.log("data done", data)
+                    })
+                    .fail(function (err) {
+                        console.log(err)
+                    });
+            });
+        };
+    </script>
+    <div class="login-wrapper" id="login-box">
+        <span class="login-escape-button fa fa-times"></span>
+        <div class="login-content">
+            <div class="login-notation-wrapper">
+                <span class="login-logo-wrapper"><i class="login-logo fa fa-user-o"></i></span>
+                <span class="login-notation">Sign In</span>
+            </div>
+            <form class="login-form">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <div class="login-button-wrapper">
+                    <span id="login-submit-button" class="login-box-button-style">Log In</span>
+                    <span id="goto-create-button" class="login-box-button-style">Create account</span>
+
+                    <!-- <button id="facebook-connect-button" type="submit">Facbook</button> -->
+                </div>
+                <div class="fb-login-button" data-max-rows="1" data-size="large" scope="public_profile,email"
+                     onlogin="checkLoginState();" data-button-type="login_with" data-show-faces="false"
+                     data-auto-logout-link="false" data-use-continue-as="false"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="login-wrapper" id="create-account-box">
+        <span class="login-escape-button fa fa-times"></span>
+        <div class="login-content">
+            <div class="login-notation-wrapper">
+                <span class="login-logo-wrapper"><i class="create-account-logo fa fa-pencil"></i></span>
+                <span class="login-notation">Sign Up</span>
+            </div>
+            <form class="login-form">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Confirm password">
+                <div class="login-button-wrapper">
+                    <span id="create-account-submit-button" class="login-box-button-style">Create account</span>
+                    <span id="goto-login-button" class="login-box-button-style">Log In</span>
+                    <!-- <button id="facebook-connect-button" type="submit">Facbook</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="controller.js"></script>
+</body>
+</html>
