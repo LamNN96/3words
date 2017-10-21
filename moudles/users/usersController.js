@@ -6,11 +6,9 @@ Router.post('/login/facebook', (req, res)=>{
     var newUser = {
         fullname : req.body.fullname,
         activeImage : req.body.activeImage,
-        uid : req.body.uid,
-        username : "lamnn",
-        password : "lamnn"
+        uid : req.body.uid
     };
-    console.log("new user",newUser)
+    console.log("new user",newUser);
     userModel.createUser(newUser, (err, doc)=>{
         if (err){
             console.log(err);

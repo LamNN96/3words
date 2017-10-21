@@ -164,15 +164,14 @@
                     fullname: response.name,
                     activeImage: urlImage
                 };
-
+                console.log(newUser);
                 $.ajax({
                     type: 'POST',
-                    data: JSON.stringify({
-                        uid: response.id,
-                        fullname: response.name,
-                        activeImage: urlImage
-                    }),
-                    dataType: 'json',
+                    data: {
+                      uid: response.id,
+                      fullname: response.name,
+                      activeImage: urlImage
+                    },
                     //contentType: 'application/json',
                     url: '/user/login/facebook',
 

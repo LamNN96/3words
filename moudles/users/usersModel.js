@@ -30,11 +30,32 @@ const loginUser = (user, callback) => {
 
 const submitComment = (cmtList, callback )=>{
 
-}
+};
+
+const getAllImage = (callback) => {
+  userModel.find({}, (err, images) => {
+    if(err) {
+      console.log(" ERROR getAllImage : ", err);
+    } else {
+      var desImages = [];
+      console.log(images);
+      for (i=0; i<images.length; i++) {
+        let item = {
+          activeImage : images[i].activeImage,
+          fullname    : images[i].fullname
+        };
+        desImages[i].push(item);
+      };
+      console.log(desImages);
+      callback(null, desImages);
+      };
+    });
+  };
 
 
 
 module.exports = {
     createUser,
-    loginUser
+    loginUser,
+    getAllImage
 }

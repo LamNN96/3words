@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config.json');
 const userController = require('./moudles/users/usersController')
+const homeRouter = require('./homeRouter');
 let app = express();
 
 mongoose.connect(config.connectionString, (err) => {
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 // app.use('/', homeRouter);
  app.use('/user', userController);
+ app.use('/home', homeRouter);
 // app.use('/api', apiRouter);
 
 app.use(express.static(__dirname + '/public'));

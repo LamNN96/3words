@@ -1,6 +1,6 @@
 var grid = document.querySelector('.portfolios-grid');
 var msnry = new Masonry( grid, {
-	gutter: 10, 
+	gutter: 10,
 	columnWidth: 265,
 	itemSelector: '.portfolios-grid-item'
 });
@@ -31,7 +31,7 @@ function displaySearchByClick(){
 			searchBar.style.display = "flex";
 		} else {
 			searchBar.style.display = "none";
-		}	
+		}
 	}
 }
 
@@ -43,7 +43,6 @@ let gotoLogInButton = document.getElementById('goto-login-button');
 let loginEscapeButtons = document.getElementsByClassName('login-escape-button');
 
 function openSignInByClick(){
-	console.log(openSignInButton);
 	if (openSignInButton) openSignInButton.addEventListener('click', function(){
 		signInBox.style.display = "flex";
 		}, false);
@@ -87,13 +86,13 @@ turnOffLoginAndCreateAccountBoxByClick();
 // 		let publisherName = publishInformation[i].getElementsByClassName('publisher-name')[0];
 // 		publisherAvatar.addEventListener('mouseover', publisherExplicitDisplayOn, false);
 // 		publisherName.addEventListener('mouseover', publisherExplicitDisplayOn, false);
-		
+
 // 		function publisherExplicitDisplayOn(){
 // 			let publisherExplicit = publishInformation[i].getElementsByClassName('publisher-explicit-wrapper')[0];
 // 			$(publisherExplicit).css("display","flex");
-// 			publisherAvatar.addEventListener('mouseout', 
+// 			publisherAvatar.addEventListener('mouseout',
 // 				function(){
-// 					publisherName.addEventListener('mouseout', 
+// 					publisherName.addEventListener('mouseout',
 // 						function(){
 // 							publisherExplicit.addEventListener('mouseout',
 // 								function(){
