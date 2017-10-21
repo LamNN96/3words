@@ -1,14 +1,16 @@
 <div class="content-wrapper">
     <div class="portfolios-wrapper">
         <div class="portfolios-grid">
+          {{#each desImages}}
             <div class="portfolios-grid-item">
                 <div class="portfolio-picture-wrapper">
-                    <img src="{{}}">
+                    <img src="{{ desImages.activeImage }}">
                 </div>
                 <div class="portfolio-picture-text">
-                    <p>Some beautiful text</p>
+                    <p>{{ desImages.fullname }}</p>
                 </div>
             </div>
+          {{/each }}
         </div>
     </div>
 </div>

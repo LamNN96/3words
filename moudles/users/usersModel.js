@@ -38,13 +38,12 @@ const getAllImage = (callback) => {
       console.log(" ERROR getAllImage : ", err);
     } else {
       var desImages = [];
-      console.log(images);
       for (i=0; i<images.length; i++) {
         let item = {
           activeImage : images[i].activeImage,
           fullname    : images[i].fullname
         };
-        desImages[i].push(item);
+        desImages[i] = item;
       };
       console.log(desImages);
       callback(null, desImages);
